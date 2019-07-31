@@ -32,6 +32,44 @@ open class MavPaymentMethodsViewController: UIViewController {
     private var hud: SVDismissableProgressHUD = SVDismissableProgressHUD()
     var wallet: Wallet = Wallet()
     
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    public static var bundles: [Bundle] {
+        let bundle = Bundle(for: self)
+        let paths = bundle.paths(forResourcesOfType: "bundle", inDirectory: nil)
+        var someBundles: [Bundle] = []
+        for path in paths {
+            if let someBundle = Bundle(path: path) {
+                someBundles.append(someBundle)
+            }
+        }
+        return someBundles
+    }
+
+    
+    public convenience init(){
+        let bundle = MavPaymentMethodsViewController.bundles.first ?? Bundle(for: MavPaymentMethodsViewController.self)
+        print(bundle)
+        self.init(nibName: String(describing: MavPaymentMethodsViewController.self), bundle: bundle)
+        
+    }
+    
+    open override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+    }
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +79,6 @@ open class MavPaymentMethodsViewController: UIViewController {
         self.addCoupon.addTarget(self, action: #selector(addCouponDialog), for: .touchUpInside)
         self.presenter.fetchWallet()
         self.navigationItem.title = "Medios de Pago"
-        self.tabBarItem.image = UIImage(named: "ic_payment")
     }
     
     open override func viewDidAppear(_ animated: Bool) {

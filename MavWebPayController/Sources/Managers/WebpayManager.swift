@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import Promise
-import Firebase
 
 public class WebpayManager {
     

@@ -65,7 +65,7 @@
                     <viewLayoutGuide key="safeArea" id="tWK-zO-x0E"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="webpay" translatesAutoresizingMaskIntoConstraints="NO" id="CaX-M6-kmc">
-                    <rect key="frame" x="259" y="275" width="123" height="80"/>
+                    <rect key="frame" x="251" y="275" width="123" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="123" id="cDm-Cc-BBM"/>
                         <constraint firstAttribute="height" constant="80" id="tUI-80-mwg"/>
@@ -167,7 +167,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LB6-oq-aYM" secondAttribute="trailing" constant="32" id="dh1-NQ-irc"/>
                 <constraint firstItem="LB6-oq-aYM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="eYJ-xr-HTT"/>
                 <constraint firstItem="Lbb-iQ-Qqy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="fnR-eL-sga"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CaX-M6-kmc" secondAttribute="trailing" constant="32" id="ieq-QG-qyA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CaX-M6-kmc" secondAttribute="trailing" constant="40" id="ieq-QG-qyA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ByE-RH-Qbr" secondAttribute="trailing" constant="32" id="q1Q-I9-f2t"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0Vn-Ox-h9r" secondAttribute="trailing" id="tqx-HK-UH3"/>
             </constraints>

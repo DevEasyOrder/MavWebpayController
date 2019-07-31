@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.name  = "MavWebPayController"
   s.summary = "Webpay Controller"
   s.requires_arc = true
+  s.static_framework = true
 
   # 2
   s.version      = "0.0.2"
@@ -27,6 +28,8 @@ Pod::Spec.new do |s|
   s.dependency 'SVDismissableProgressHUD'
   s.dependency 'IQKeyboardManagerSwift'
   s.dependency 'Alamofire'
+  s.dependency 'Firebase'
+  s.dependency 'Firebase/Core'
   s.dependency 'Firebase/Firestore'
   s.dependency 'Firebase/Auth'
   s.dependency 'Promises'
@@ -39,7 +42,6 @@ Pod::Spec.new do |s|
   # 8
   s.ios.source_files = 'MavWebPayController/Sources/**/*.*'
   s.resources = ['MavWebPayController/Assets/**/*.*']
-  
 
 end
 

@@ -11,7 +11,16 @@ import Foundation
 open class MavPaymentMethodsRouter: PresenterToRouterMavPaymentMethodProtocol {
     
     public static func createPaymentModule() -> UINavigationController {
-        let vc = MavPaymentMethodsViewController(nibName: String(describing: MavPaymentMethodsViewController.self), bundle: Bundle(for: MavPaymentMethodsViewController.self))
+        var vc = MavPaymentMethodsViewController()        
+        let presenter: ViewToPresenterMavPaymentMethodProtocol & InteractorToPresenterMavPaymentMethodProtocol = MavPaymentMethodPresenter()
+        let interactor: PresenterToInteractorMavPaymentMethodProtocol = MavPaymentMethodInteractor()
+        let router:PresenterToRouterMavPaymentMethodProtocol = MavPaymentMethodsRouter()
+        presenter.view = vc
+        presenter.router = router
+        presenter.interactor = interactor
+        interactor.presenter = presenter
+        vc.presenter = presenter as! MavPaymentMethodPresenter
+        vc = presenter.view as! MavPaymentMethodsViewController
         let nav = UINavigationController(rootViewController: vc)
         return nav
     }
