@@ -101,17 +101,21 @@ open class MavPaymentMethodsViewController: UIViewController {
 
 extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtocol{
     func fetchWalletSuccessfull(wallet: Wallet) {
+        let bundle = MavPaymentMethodsViewController.bundles.first ?? Bundle(for: MavPaymentMethodsViewController.self)
         self.wallet = wallet
         self.amountLabel.text = wallet.balance.currency()
         self.last4DigitsLabel.text = wallet.last4Digits
         self.holderNameLabel.text = wallet.holder
         self.webpayButton.setTitle(wallet.tbkUser != "" ? "Eliminar Tarjeta" : "Ingresar Tarjeta", for: .normal)
+        var image = UIImage(named: "ic_card_blank", in: bundle, compatibleWith: nil)
         if(wallet.creditCardType == "Visa"){
-            self.cardImageView.image = UIImage(named: "ic_card_visa")
+            image = UIImage(named: "ic_card_visa", in: bundle, compatibleWith: nil)
+            self.cardImageView.image = image
         }else if(wallet.creditCardType == "Mastercard"){
-            self.cardImageView.image = UIImage(named: "ic_card_mastercard")
+            image = UIImage(named: "ic_card_mastercard", in: bundle, compatibleWith: nil)
+            self.cardImageView.image = image
         }else{
-            self.cardImageView.image = UIImage(named: "ic_card_blank")
+            self.cardImageView.image = image
         }
     }
     
