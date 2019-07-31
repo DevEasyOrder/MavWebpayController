@@ -16,10 +16,10 @@ Pod::Spec.new do |s|
   s.author = { "alfredolucomav" => "alfredo.luco@mavericks.cool" }
 
   # 5
-  s.homepage = "https://github.com/alfredolucomav/MAVWalktrough"
+  s.homepage = "https://github.com/alfredolucomav/MavWebpayController"
 
   # 6
-  s.source = { :git => "https://github.com/alfredolucomav/MAVWalktrough", :tag => "0.0.5" }
+  s.source = { :git => "https://github.com/alfredolucomav/MavWebpayController", :tag => "0.0.1" }
 
   # 7
   s.ios.frameworks = 'UIKit', 'Foundation'
