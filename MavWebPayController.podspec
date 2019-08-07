@@ -40,8 +40,12 @@ Pod::Spec.new do |s|
   s.dependency 'MaterialComponents/Snackbar+ColorThemer'
 
   # 8
-  s.ios.source_files = 'MavWebPayController/Sources/**/*.*'
-  s.resources = ['MavWebPayController/Assets/**/*.*']
+  s.ios.source_files = 'MavWebPayController/Sources/**/*.{swift}'
+  #s.resources = ['MavWebPayController/Assets/**/*.*']
+  s.resources = ['MavWebPayController/Assets/**/*.*','MavWebPayController/Sources/**/*.{xib}']
+  #s.resource_bundles = {
+  #  'MavWebPayController' => ['MavWebPayController/Assets/**/*.*']
+  #}
 
 end
 

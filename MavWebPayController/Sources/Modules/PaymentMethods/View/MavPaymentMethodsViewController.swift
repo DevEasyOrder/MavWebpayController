@@ -47,12 +47,27 @@ open class MavPaymentMethodsViewController: UIViewController {
         }
         return someBundles
     }
+    
+    public static func image(named: String) -> UIImage? {
+        // return the first occurrence of an image named 'named' from all existing bundles
+        for bundle in bundles {
+            if let image = UIImage(named: named, in: bundle, compatibleWith: nil) {
+                return image
+            }
+        }
+        return nil
+    }
+
 
     
     public convenience init(){
+        print(MavPaymentMethodsViewController.bundles)
         let bundle = MavPaymentMethodsViewController.bundles.first ?? Bundle(for: MavPaymentMethodsViewController.self)
         print(bundle)
-        self.init(nibName: String(describing: MavPaymentMethodsViewController.self), bundle: bundle)
+        for bud in MavPaymentMethodsViewController.bundles{
+            print(bud.bundlePath)
+        }
+        self.init(nibName: String(describing: MavPaymentMethodsViewController.self), bundle: Bundle(for: MavPaymentMethodsViewController.self))
         
     }
     
@@ -107,12 +122,12 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
         self.last4DigitsLabel.text = wallet.last4Digits
         self.holderNameLabel.text = wallet.holder
         self.webpayButton.setTitle(wallet.tbkUser != "" ? "Eliminar Tarjeta" : "Ingresar Tarjeta", for: .normal)
-        var image = UIImage(named: "ic_card_blank", in: bundle, compatibleWith: nil)
+        var image = MavPaymentMethodsViewController.image(named: "ic_card_blank")
         if(wallet.creditCardType == "Visa"){
-            image = UIImage(named: "ic_card_visa", in: bundle, compatibleWith: nil)
+            image = MavPaymentMethodsViewController.image(named: "ic_card_visa")
             self.cardImageView.image = image
         }else if(wallet.creditCardType == "Mastercard"){
-            image = UIImage(named: "ic_card_mastercard", in: bundle, compatibleWith: nil)
+            image = MavPaymentMethodsViewController.image(named: "ic_card_mastercard")
             self.cardImageView.image = image
         }else{
             self.cardImageView.image = image
