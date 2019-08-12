@@ -41,8 +41,8 @@ extension MavPaymentMethodPresenter: InteractorToPresenterMavPaymentMethodProtoc
         view?.fetchWalletFailure(error: error)
     }
     
-    func enrolleCardSuccessfull() {
-        view?.enrolleCardSuccessfull()
+    func enrolleCardSuccessfull(webpay: Webpay) {
+        view?.enrolleCardSuccessfull(webpay: webpay)
     }
     
     func unsubscribeCardSuccessfull() {

@@ -22,7 +22,7 @@ protocol ViewToPresenterMavPaymentMethodProtocol:class{
 protocol PresenterToViewMavPaymentMethodProtocol:class {
     func fetchWalletSuccessfull(wallet: Wallet)
     func fetchWalletFailure(error: Error)
-    func enrolleCardSuccessfull()
+    func enrolleCardSuccessfull(webpay: Webpay)
     func unsubscribeCardSuccessfull()
     func enrolleCardFailure(error: Error)
     func unsubscribeCardFailure(error: Error)
@@ -44,7 +44,7 @@ protocol PresenterToInteractorMavPaymentMethodProtocol:class {
 protocol InteractorToPresenterMavPaymentMethodProtocol:class {
     func fetchWalletSuccessfull(wallet: Wallet)
     func fetchWalletFailure(error: Error)
-    func enrolleCardSuccessfull()
+    func enrolleCardSuccessfull(webpay: Webpay)
     func unsubscribeCardSuccessfull()
     func enrolleCardFailure(error: Error)
     func unsubscribeCardFailure(error: Error)

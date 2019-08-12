@@ -102,6 +102,7 @@ open class MavPaymentMethodsViewController: UIViewController {
     }
     
     @objc func changeWebpayStatus(){
+        self.hud.showDismissableMessage(message: "Cargando")
         self.presenter.changeCardStatus(wallet: self.wallet)
     }
     
@@ -145,8 +146,10 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
         MDCSnackbarManager.show(message)
     }
     
-    func enrolleCardSuccessfull() {
-        self.hud.showDismissableSuccess(status: "Tarjeta agregada exitosamente")
+    func enrolleCardSuccessfull(webpay: Webpay) {
+        self.hud.dismiss()
+        let vc = MavWebpayWebviewRouter.createWebViewModule(webpay: webpay)
+        self.present(vc, animated: true, completion: nil)
     }
     
     func enrolleCardFailure(error: Error) {

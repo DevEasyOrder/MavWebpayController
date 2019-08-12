@@ -16,7 +16,7 @@ class MavPaymentMethodInteractor: PresenterToInteractorMavPaymentMethodProtocol 
     
     func fetchWallet() {
         let firebaseManager = FirebaseManager.shared
-        let subscription: PublishSubject<Wallet> = firebaseManager.objectListener(entity: "wallet")
+        let subscription: PublishSubject<Wallet> = firebaseManager.objectListener(entity: "wallets")
         subscription.subscribe(onNext: { (wallet) in
             self.presenter?.fetchWalletSuccessfull(wallet: wallet)
         }, onError: { (error) in
@@ -34,8 +34,12 @@ class MavPaymentMethodInteractor: PresenterToInteractorMavPaymentMethodProtocol 
     }
     
     func enrolleCard(wallet: Wallet) {
-        WebpayManager.shared.enrolleCard().then({ _ in
-            self.presenter?.enrolleCardSuccessfull()
+        WebpayManager.shared.enrolleCard().then({ urlStr in
+            let webpay = Webpay()
+            if let url = URL(string: urlStr){
+                webpay.url = url
+            }
+            self.presenter?.enrolleCardSuccessfull(webpay: webpay)
         }).catch({
             print($0)
             self.presenter?.enrolleCardFailure(error: $0)
