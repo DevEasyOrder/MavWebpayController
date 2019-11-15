@@ -26,6 +26,7 @@ class MavWebpayWebviewViewController: UIViewController, UIWebViewDelegate {
             self.webview.loadRequest(URLRequest(url: url))
         }
         self.webview.delegate = self
+        self.barButton = UIBarButtonItem(title: "✕", style: .plain, target: self, action: #selector(close))
         self.barButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 25.0)], for: .normal)
         self.navigationItem.title = "Webpay"
         self.navigationController?.navigationBar.barTintColor = MavWebpayConfiguration.shared.barTintColor

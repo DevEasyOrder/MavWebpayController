@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +39,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tienes un balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rAL-A5-gDI">
                             <rect key="frame" x="8" y="29.5" width="186" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDV-rw-9jk" customClass="FormButton" customModule="MavWebPayController" customModuleProvider="target">
@@ -65,11 +63,12 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="tWK-zO-x0E"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="webpay" translatesAutoresizingMaskIntoConstraints="NO" id="CaX-M6-kmc">
-                    <rect key="frame" x="251" y="275" width="123" height="80"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="webpay" translatesAutoresizingMaskIntoConstraints="NO" id="CaX-M6-kmc">
+                    <rect key="frame" x="250.99999999999997" y="275" width="123.00000000000009" height="80"/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="6VJ-tx-S9s"/>
                         <constraint firstAttribute="width" constant="123" id="cDm-Cc-BBM"/>
-                        <constraint firstAttribute="height" constant="80" id="tUI-80-mwg"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="tUI-80-mwg"/>
                     </constraints>
                 </imageView>
                 <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="LB6-oq-aYM">
@@ -130,7 +129,7 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="4Lt-Kp-d38"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-Pe-jeo">
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-Pe-jeo">
                     <rect key="frame" x="0.0" y="387" width="414" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -145,7 +144,7 @@
                     <state key="normal" title="Ingresar Tarjeta"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WALLET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbb-iQ-Qqy">
-                    <rect key="frame" x="32" y="452" width="350" height="19"/>
+                    <rect key="frame" x="40" y="452" width="334" height="19"/>
                     <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -164,10 +163,10 @@
                 <constraint firstItem="LB6-oq-aYM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="NuZ-ez-GYr"/>
                 <constraint firstItem="0Vn-Ox-h9r" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ByE-RH-Qbr" secondAttribute="bottom" constant="16" id="ObM-fo-D4b"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Vn-Ox-h9r" secondAttribute="bottom" constant="16" id="OgG-rM-nqX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lbb-iQ-Qqy" secondAttribute="trailing" constant="32" id="bNp-dW-2Zu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lbb-iQ-Qqy" secondAttribute="trailing" constant="40" id="bNp-dW-2Zu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LB6-oq-aYM" secondAttribute="trailing" constant="32" id="dh1-NQ-irc"/>
                 <constraint firstItem="LB6-oq-aYM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="eYJ-xr-HTT"/>
-                <constraint firstItem="Lbb-iQ-Qqy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="fnR-eL-sga"/>
+                <constraint firstItem="Lbb-iQ-Qqy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="fnR-eL-sga"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CaX-M6-kmc" secondAttribute="trailing" constant="40" id="ieq-QG-qyA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ByE-RH-Qbr" secondAttribute="trailing" constant="32" id="q1Q-I9-f2t"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0Vn-Ox-h9r" secondAttribute="trailing" id="tqx-HK-UH3"/>

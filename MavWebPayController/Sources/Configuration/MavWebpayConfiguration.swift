@@ -18,6 +18,7 @@ open class MavWebpayConfiguration{
     open var authorizationParams: [String : Any] = [:]
     open var token: String = ""
     open var barTintColor: UIColor = .red
+    open var nullCardName: String = "ic_card_blank"
     
     
 }

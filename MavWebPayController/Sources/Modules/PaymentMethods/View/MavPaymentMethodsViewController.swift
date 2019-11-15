@@ -31,6 +31,9 @@ open class MavPaymentMethodsViewController: UIViewController {
     open var presenter: MavPaymentMethodPresenter = MavPaymentMethodPresenter()
     private var hud: SVDismissableProgressHUD = SVDismissableProgressHUD()
     var wallet: Wallet = Wallet()
+    public var enrollTitle: String = "Ingresar Tarjeta"
+    public var unrollTitle: String = "Eliminar Tarjeta"
+    public var navTitle: String = "Medios de Pago"
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -93,7 +96,7 @@ open class MavPaymentMethodsViewController: UIViewController {
         self.webpayButton.addTarget(self, action: #selector(changeWebpayStatus), for: .touchUpInside)
         self.addCoupon.addTarget(self, action: #selector(addCouponDialog), for: .touchUpInside)
         self.presenter.fetchWallet()
-        self.navigationItem.title = "Medios de Pago"
+        self.navigationItem.title = self.navTitle
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +105,7 @@ open class MavPaymentMethodsViewController: UIViewController {
     }
     
     @objc func changeWebpayStatus(){
-        self.hud.showDismissableMessage(message: "Cargando")
+        self.hud.showDismissableMessage(message: NSLocalizedString("Cargando", comment: ""))
         self.presenter.changeCardStatus(wallet: self.wallet)
     }
     
@@ -122,8 +125,8 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
         self.amountLabel.text = wallet.balance.currency()
         self.last4DigitsLabel.text = wallet.last4Digits
         self.holderNameLabel.text = wallet.holder
-        self.webpayButton.setTitle(wallet.tbkUser != "" ? "Eliminar Tarjeta" : "Ingresar Tarjeta", for: .normal)
-        var image = MavPaymentMethodsViewController.image(named: "ic_card_blank")
+        self.webpayButton.setTitle(wallet.tbkUser != "" ? self.unrollTitle : self.enrollTitle, for: .normal)
+        var image = MavPaymentMethodsViewController.image(named: MavWebpayConfiguration.shared.nullCardName)
         if(wallet.creditCardType == "Visa"){
             image = MavPaymentMethodsViewController.image(named: "ic_card_visa")
             self.cardImageView.image = image
@@ -142,7 +145,7 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
         MDCSnackbarColorThemer.applySemanticColorScheme(colorScheme)
         let message = MDCSnackbarMessage()
         message.duration = 10.0
-        message.text = "Ha ocurrido un error en la carga de tu wallet"
+        message.text = NSLocalizedString("Ha ocurrido un error en la carga de tu wallet",comment: "")
         MDCSnackbarManager.show(message)
     }
     
@@ -153,14 +156,14 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
     }
     
     func enrolleCardFailure(error: Error) {
-        self.hud.showDismissableError(status: "La tarjeta no se ha podido agregar de manera correcta.")
+        self.hud.showDismissableError(status: NSLocalizedString("La tarjeta no se ha podido agregar de manera correcta.", comment: ""))
     }
     
     func unsubscribeCardSuccessfull() {
-        self.hud.showDismissableSuccess(status: "Tarjeta Removida exitosamente")
+        self.hud.showDismissableSuccess(status: NSLocalizedString("Tarjeta Removida exitosamente", comment: ""))
     }
     
     func unsubscribeCardFailure(error: Error) {
-        self.hud.showDismissableError(status: "La tarjeta no se ha podido eliminar correctamente")
+        self.hud.showDismissableError(status: NSLocalizedString("La tarjeta no se ha podido eliminar correctamente", comment: ""))
     }
 }
