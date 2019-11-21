@@ -35,6 +35,12 @@ open class MavPaymentMethodsViewController: UIViewController {
     public var unrollTitle: String = "Eliminar Tarjeta"
     public var navTitle: String = "Medios de Pago"
     
+    public var backButton: UIBarButtonItem?{
+        didSet{
+            self.navigationItem.setLeftBarButton(backButton, animated: true)
+        }
+    }
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }

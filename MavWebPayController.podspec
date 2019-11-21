@@ -43,9 +43,9 @@ Pod::Spec.new do |s|
   s.ios.source_files = 'MavWebPayController/Sources/**/*.{swift}'
   #s.resources = ['MavWebPayController/Assets/**/*.*']
   s.resources = ['MavWebPayController/Assets/**/*.*','MavWebPayController/Sources/**/*.{xib}']
-  s.resource_bundles = {
-    'MavWebPayController' => ['MavWebPayController/Assets/**/*.*']
-  }
+#  s.resource_bundles = {
+#    'MavWebPayController' => ['MavWebPayController/Assets/**/*.*']
+#  }
 
 end
 
