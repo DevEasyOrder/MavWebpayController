@@ -18,6 +18,7 @@ public protocol MAVPaymentMethodsViewControllerDelegate: class{
 open class MavPaymentMethodsViewController: UIViewController {
 
     //MARK: - IBOutlets
+    @IBOutlet open weak var walletStackedLabel: UILabel!
     @IBOutlet open weak var webpayButton: UIButton!
     @IBOutlet open weak var addCoupon: FormButton!
     @IBOutlet open weak var amountLabel: UILabel!
@@ -80,16 +81,6 @@ open class MavPaymentMethodsViewController: UIViewController {
         
     }
     
-    open override func loadViewIfNeeded() {
-        super.loadViewIfNeeded()
-    }
-    
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    
-    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -132,12 +123,15 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
         self.last4DigitsLabel.text = wallet.last4Digits
         self.holderNameLabel.text = wallet.holder
         self.webpayButton.setTitle(wallet.tbkUser != "" ? self.unrollTitle : self.enrollTitle, for: .normal)
-        var image = MavPaymentMethodsViewController.image(named: MavWebpayConfiguration.shared.nullCardName)
+        var image = self.bundledImage(named: MavWebpayConfiguration.shared.nullCardName)
+//        var image = MavPaymentMethodsViewController.image(named: MavWebpayConfiguration.shared.nullCardName)
         if(wallet.creditCardType == "Visa"){
-            image = MavPaymentMethodsViewController.image(named: "ic_card_visa")
+            image = self.bundledImage(named: "ic_card_visa")
+//            image = MavPaymentMethodsViewController.image(named: "ic_card_visa")
             self.cardImageView.image = image
         }else if(wallet.creditCardType == "Mastercard"){
-            image = MavPaymentMethodsViewController.image(named: "ic_card_mastercard")
+            image = self.bundledImage(named: "ic_card_mastercard")
+//            image = MavPaymentMethodsViewController.image(named: "ic_card_mastercard")
             self.cardImageView.image = image
         }else{
             self.cardImageView.image = image
@@ -172,4 +166,15 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
     func unsubscribeCardFailure(error: Error) {
         self.hud.showDismissableError(status: NSLocalizedString("La tarjeta no se ha podido eliminar correctamente", comment: ""))
     }
+    
+    
+    func bundledImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil {
+            return UIImage(named: named, in: Bundle(for: MavPaymentMethodsViewController.classForCoder()), compatibleWith: nil)
+        } // Replace MyBasePodClass with yours
+        return image
+    }
+    
 }
+
