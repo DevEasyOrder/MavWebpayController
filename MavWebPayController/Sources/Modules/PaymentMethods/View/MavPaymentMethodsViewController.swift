@@ -129,7 +129,7 @@ extension MavPaymentMethodsViewController: PresenterToViewMavPaymentMethodProtoc
             image = self.bundledImage(named: "ic_card_visa")
 //            image = MavPaymentMethodsViewController.image(named: "ic_card_visa")
             self.cardImageView.image = image
-        }else if(wallet.creditCardType == "Mastercard"){
+        }else if(wallet.creditCardType == "MasterCard"){
             image = self.bundledImage(named: "ic_card_mastercard")
 //            image = MavPaymentMethodsViewController.image(named: "ic_card_mastercard")
             self.cardImageView.image = image
