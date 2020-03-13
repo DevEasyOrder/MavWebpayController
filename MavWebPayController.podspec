@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   # 2
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
 
   # 3
   s.license = { :type => "MIT", :file => "LICENSE" }
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/alfredolucomav/MavWebpayController"
 
   # 6
-  s.source = { :git => "https://github.com/alfredolucomav/MavWebpayController", :tag => "0.0.2" }
+  s.source = { :git => "https://github.com/alfredolucomav/MavWebpayController", :tag => "0.0.3" }
 
   # 7
   s.ios.frameworks = 'UIKit', 'Foundation'
@@ -46,6 +46,9 @@ Pod::Spec.new do |s|
 #  s.resource_bundles = {
 #    'MavWebPayController' => ['MavWebPayController/Assets/**/*.*']
 #  }
+  
+  # 9
+  s.swift_versions = ['4.2', '5.0']
 
 end
 
